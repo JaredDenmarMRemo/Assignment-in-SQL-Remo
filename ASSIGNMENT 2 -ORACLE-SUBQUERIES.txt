@@ -1,0 +1,47 @@
+--1) write a SQL query to find those employees who get higher salary than the employee whose ID is 163. Return first name, last name.
+
+select first_name, last_name
+from employees
+where salary >(select (salary) from employees where employee_id = 163);
+
+--2) Display the name, salary, department id, job id for those employees who works in the same designation as the employee works whose id is 169.
+
+select first_name, last_name, salary, department_id, job_id
+from employees
+where job_id=(select job_id from employees where employee_id=169);
+
+--3) Display the name, salary, department id for those employees who earn such amount of salary which is the smallest salary of any of the departments.
+
+select first_name, last_name, salary, department_id
+from employees
+where salary in(select min(salary) from employees
+group by department_id);
+
+--4) Display the employee id, employee name for all employees who earn more than the average salary
+
+select employee_id, first_name, last_name 
+from employees
+where salary >(select avg(salary) from employees);
+
+--5) Display the employee name, employee id and salary of all employees who report to John.
+
+select employee_id, first_name, last_name, salary
+from employees
+where manager_id= any(select employee_id from employees where lower(first_name)='john');
+
+
+--6) SQL query to find all those employees who work in the HR department. Return department ID, name (first name), job ID and department name.
+
+select a.department_id,a.first_name, a.last_name, a.job_id, b.department_name
+from employees a, departments b
+where a.department_id=b.department_id and lower(b.department_name)='human resources';
+
+--7) write a SQL query to find those employees whose ID matches any of the number 134, 159 and 183. Return all the fields.
+
+select*
+from employees
+where employee_id in(134,159,183);
+
+
+
+
