@@ -1,0 +1,139 @@
+--Q1. Accept a numeric array datafor 5 numbersandfind the largest number--
+
+
+public class Number1 {
+
+	public static int largestNumber(int[] a, int arraySize) {
+
+		int num;
+
+		for (int i = 0; i < arraySize; i++) {
+			for (int j = i + 1; j < arraySize; j++) {
+				if (a[i] > a[j]) {
+					num = a[i];
+					a[i] = a[j];
+					a[j] = num;
+				}
+			}
+		}
+		return a[arraySize - 1];
+	}
+
+	public static void main(String[] args) {
+
+		int a[] = {4, 32, 23, 11, 69};
+
+		System.out.println("the largest number is: " + largestNumber(a, 5));
+}
+}
+
+--Q2 create methods to find the cube and square of a given number--
+
+public class Number2{
+
+
+		
+		    
+		    public static void displayCubeAndSquare(int sampleNmber) {
+		        
+
+		        
+		        System.out.println("Square of " + sampleNmber + " is: " + Math.pow(sampleNmber, 2));
+		        System.out.println("Cube of " + sampleNmber + " is: " + Math.pow(sampleNmber, 3));    
+		        
+		    }
+
+		    public static void main(String[] args) {
+		         
+		            int num = 3;
+		        
+		            displayCubeAndSquare(num);
+
+		    }
+
+		
+
+	}
+
+
+--Q3 Create a method to swap two numbers
+
+public class Number3{
+
+    
+    
+    public static void SwapNumber(int num1, int num2) {
+
+     
+        int x = num1; 
+        int y = num2; 
+        int temp = 0;
+        System.out.println("Before Swap");
+
+        System.out.println("the value of x is: " + x);
+
+        System.out.println("the value of y is: " + y);
+
+        System.out.println("After Swap");
+
+        temp = x;
+        x = y;
+        y = temp;
+
+        System.out.println("the value of x is: " + x);
+
+        System.out.println("the value of y is: " + y);
+
+    }
+
+    public static void main(String[] args) {
+
+        int x = 1;
+        int y = 2;
+
+        SwapNumber(x, y);
+
+    }
+
+}
+
+
+--Q4 write the switch case construct perform the calculations--
+
+public class Number4{
+    
+    public static void main (String args[]) {
+        
+        
+        int num1 = 8;
+        int num2 = 4;
+        char operation = '*';
+        
+        switch (operation) {
+        
+        case '+':
+            System.out.println("Add two numbers;");
+            int sum = num1 + num2;
+            System.out.println("the sum of two number: "+ sum);
+            break;
+        case '-':
+            System.out.println("Subtract two numbers;");
+            int diff = num1 - num2;
+            System.out.println("the difference of two number: "+ diff);
+            break;
+        case '*':
+            System.out.println("Multiply two numbers;");
+            int product = num1 * num2;
+            System.out.println("the product of two number: "+ product);
+            break;
+        case '/':
+            System.out.println("Divide two numbers;");
+            int quotient = num1 / num2;
+            System.out.println("the quotient of two number: "+ quotient);
+            break;
+        }
+        
+    }
+
+}
+
